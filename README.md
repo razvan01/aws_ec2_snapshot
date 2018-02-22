@@ -3,7 +3,7 @@ Create snapshots for AWS EC2 instances
 
 Features:
 - snapshoot all AWS EC2 instances
-- create snapshot for moltiple drives attached to instance
+- create a snapshot for multiple disks attached to instance
 - remove snapshots older then specific days
 
 How to use it:
