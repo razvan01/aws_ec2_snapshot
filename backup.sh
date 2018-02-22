@@ -31,7 +31,7 @@ function create_snap {
 
 if [ $(echo $SNAPSHOT_NAME | wc -w) -ge 1 ]; then
   for snapshot in $SNAPSHOT_NAME; do
-    SNAPSHOT_DATE=`aws ec2 describe-snapshots --owner-ids 299871785288 --snapshot-id $snapshot | awk '{print $7}' | cut -d T -f1 | sed 's/-//g'`;
+    SNAPSHOT_DATE=`aws ec2 describe-snapshots --owner-ids $OWNER_id --snapshot-id $snapshot | awk '{print $7}' | cut -d T -f1 | sed 's/-//g'`;
     if [ "$SNAPSHOT_DATE" -le "$OLDER_THEN" ]; then
       aws ec2 delete-snapshot --snapshot-id $snapshot;
     fi;
